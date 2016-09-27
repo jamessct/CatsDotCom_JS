@@ -12,11 +12,11 @@ var app = function(){
   addCat("Name: elfcat", "Favourite food: other cats", "http://i0.wp.com/theverybesttop10.files.wordpress.com/2013/12/the-world_s-top-10-best-images-of-cats-in-elf-costumes-10.jpg?resize=584%2C439");
 }
 
-var addCat = function(name, favFood, imgUrl){
+var addCat = function(name, favFood, url){
   var ul = createUl();
   var catName = createCatName(name);
   var favFood = createFavFood(favFood);
-  var img = createImg(imgUrl);
+  var img = createImg(url);
   var cats = document.querySelector('#cats');
   appendElements(cats, ul, catName, favFood, img);
 }
@@ -39,16 +39,17 @@ var createFavFood = function(favFood) {
   return catFavFood;
 }
 
-var createImg = function(img) {
+var createImg = function(url) {
   var img = document.createElement('img');
-  img.innerHTML = img;
+  img.width = "500";
+  img.src = url;
   return img;
 }
 
 var appendElements = function(cats, ul, catName, favFood, img) {
-  ul.appendChild(img);
   ul.appendChild(catName);
   ul.appendChild(favFood);
+  ul.appendChild(img);
   cats.appendChild(ul);
 }
 
